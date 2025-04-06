@@ -204,7 +204,7 @@ const HomeScreen = ({ navigation, route }) => {
         />
         <View style={styles.horizontalChairInfo}>
           <Text style={styles.chairName} numberOfLines={1}>{item.name}</Text>
-          <Text style={styles.chairPrice}>${parseFloat(item.price).toFixed(2)}</Text>
+          <Text style={styles.chairPrice}>₱{parseFloat(item.price).toFixed(2)}</Text>
           
           {item.avgRating > 0 && (
             <View style={styles.ratingContainer}>

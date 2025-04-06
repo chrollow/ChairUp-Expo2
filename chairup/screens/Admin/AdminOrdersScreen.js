@@ -158,7 +158,7 @@ const AdminOrdersScreen = ({ navigation }) => {
           </Text>
           
           <View style={styles.footer}>
-            <Text style={styles.totalPrice}>${item.totalPrice?.toFixed(2)}</Text>
+            <Text style={styles.totalPrice}>₱{item.totalPrice?.toFixed(2)}</Text>
             
             <TouchableOpacity 
               style={styles.updateButton}

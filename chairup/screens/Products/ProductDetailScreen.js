@@ -193,7 +193,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
 
       <View style={styles.infoContainer}>
         <Text style={styles.productName}>{product.name}</Text>
-        <Text style={styles.productPrice}>${product.price}</Text>
+        <Text style={styles.productPrice}>₱{product.price}</Text>
 
         <View style={styles.ratingContainer}>
           {[1, 2, 3, 4, 5].map(star => (

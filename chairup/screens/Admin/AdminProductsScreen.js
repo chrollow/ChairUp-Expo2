@@ -130,7 +130,7 @@ const AdminProductsScreen = ({ navigation }) => {
         
         <View style={styles.productContent}>
           <Text style={styles.productName}>{item?.name || 'Unnamed Product'}</Text>
-          <Text style={styles.productPrice}>${parseFloat(item?.price || 0).toFixed(2)}</Text>
+          <Text style={styles.productPrice}>₱{parseFloat(item?.price || 0).toFixed(2)}</Text>
           <Text style={styles.productCategory}>{item?.category || 'Uncategorized'}</Text>
           <Text style={styles.productStock}>Stock: {item?.stockQuantity || 0}</Text>
         </View>

@@ -248,7 +248,7 @@ const CartScreen = ({ navigation, route }) => {
           
           <View style={styles.productDetails}>
             <Text style={styles.productName} numberOfLines={2}>{product.name}</Text>
-            <Text style={styles.productPrice}>${product.price}</Text>
+            <Text style={styles.productPrice}>₱{product.price}</Text>
           </View>
         </TouchableOpacity>
         
@@ -321,7 +321,7 @@ const CartScreen = ({ navigation, route }) => {
         <View style={styles.footer}>
           <View style={styles.totalContainer}>
             <Text style={styles.totalText}>Total:</Text>
-            <Text style={styles.totalAmount}>${total.toFixed(2)}</Text>
+            <Text style={styles.totalAmount}>₱{total.toFixed(2)}</Text>
           </View>
           
           <TouchableOpacity
