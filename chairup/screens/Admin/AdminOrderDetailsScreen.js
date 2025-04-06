@@ -15,8 +15,7 @@ import * as SecureStore from 'expo-secure-store';
 import moment from 'moment';
 import { sendOrderStatusNotification } from '../../utils/notifications';
 
-const API_URL = "http://192.168.1.39:3000/api"; // Update with your server IP
-const BASE_URL = "http://192.168.1.39:3000"; // Add this line for image URLs
+import { API_URL, BASE_URL } from '../../utils/constants';
 
 const AdminOrderDetailsScreen = ({ route, navigation }) => {
   const { orderId } = route.params;

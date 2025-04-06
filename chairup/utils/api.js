@@ -1,9 +1,10 @@
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
+import { API_URL } from './constants';
 
 // Create axios instance with base URL
 const API = axios.create({
-  baseURL: 'http://192.168.1.39:3000/api'
+  baseURL: API_URL
 });
 
 // Add request interceptor to automatically include auth token

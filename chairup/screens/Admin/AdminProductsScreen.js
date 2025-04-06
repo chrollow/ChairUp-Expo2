@@ -14,8 +14,7 @@ import { ProductContext } from '../../Context/Store/ProductGlobal';
 import API from '../../utils/api';
 import TouchableScale from '../../components/TouchableScale';
 
-const API_URL = "http://192.168.1.39:3000/api";
-const BASE_URL = "http://192.168.1.39:3000"; // Base URL without /api
+import { API_URL, BASE_URL } from '../../utils/constants';
 
 const AdminProductsScreen = ({ navigation }) => {
   const { stateProducts, dispatch } = useContext(ProductContext);

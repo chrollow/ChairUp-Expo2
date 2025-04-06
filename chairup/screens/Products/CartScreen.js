@@ -16,9 +16,7 @@ import { syncCartItem, deleteCartItem, clearServerCart, fetchUserCart } from '..
 import * as SecureStore from 'expo-secure-store';
 import PromotionModal from '../../components/Promotions/PromotionModal';
 import axios from 'axios';
-import { API_URL } from '../../utils/api';
-
-const BASE_URL = "http://192.168.1.39:3000"; // Base URL without /api
+import { API_URL, BASE_URL } from '../../utils/constants';
 
 const CartScreen = ({ navigation, route }) => {
   const { stateProducts, dispatch } = useContext(ProductContext);

@@ -18,7 +18,7 @@ import * as SecureStore from 'expo-secure-store';
 import { clearCart } from '../../redux/slices/cartSlice';
 import { clearServerCart } from '../../Context/Actions/Product.actions';
 
-const API_URL = "http://192.168.1.39:3000/api"; // Update with your server IP
+import { API_URL, BASE_URL } from '../../utils/constants';
 
 const CheckoutScreen = ({ navigation }) => {
   const dispatch = useDispatch();

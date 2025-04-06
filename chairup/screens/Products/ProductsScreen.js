@@ -23,8 +23,7 @@ import axios from 'axios';
 import { useFocusEffect } from '@react-navigation/native';
 import API from '../../utils/api';
 
-const API_URL = "http://192.168.1.39:3000/api";
-const BASE_URL = "http://192.168.1.39:3000"; // Base URL without /api
+import { API_URL, BASE_URL } from '../../utils/constants';
 
 const ProductsScreen = ({ navigation }) => {
   const { stateProducts, dispatch } = useContext(ProductContext);
