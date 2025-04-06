@@ -9,7 +9,8 @@ import {
   SafeAreaView,
   StatusBar,
   ActivityIndicator,
-  ScrollView
+  ScrollView,
+  Alert
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContext } from '../Context/Store/AuthGlobal';
@@ -19,6 +20,7 @@ import SimpleDrawer from '../components/SimpleDrawer';
 import API from '../utils/api';
 import { useFocusEffect } from '@react-navigation/native';
 import PromotionDetailModal from '../components/Promotions/PromotionDetailModal';
+import * as Notifications from 'expo-notifications';
 
 import { API_URL, BASE_URL } from '../utils/constants';
 
@@ -37,6 +39,28 @@ const HomeScreen = ({ navigation, route }) => {
     setShowDrawer(!showDrawer);
   };
 
+  // Function to request notification permissions if not already granted
+  const requestNotificationPermissions = async () => {
+    try {
+      const { status: existingStatus } = await Notifications.getPermissionsAsync();
+      let finalStatus = existingStatus;
+      
+      if (existingStatus !== 'granted') {
+        const { status } = await Notifications.requestPermissionsAsync();
+        finalStatus = status;
+      }
+      
+      if (finalStatus !== 'granted') {
+        Alert.alert('Permission Required', 'Please enable notifications to receive special offer alerts!');
+        return false;
+      }
+      return true;
+    } catch (error) {
+      console.error('Error requesting notification permissions:', error);
+      return false;
+    }
+  };
+
   // Fetch user data
   useEffect(() => {
     const getUserData = async () => {
@@ -51,6 +75,30 @@ const HomeScreen = ({ navigation, route }) => {
     };
     
     getUserData();
+  }, []);
+
+  // Add this useEffect below the other useEffect hooks in your HomeScreen component
+  useEffect(() => {
+    // Request notification permissions when component mounts
+    const setupNotifications = async () => {
+      const permissionGranted = await requestNotificationPermissions();
+      
+      if (permissionGranted) {
+        // Subscribe to promotion notifications
+        const userToken = await AsyncStorage.getItem('userToken');
+        if (userToken) {
+          try {
+            // Subscribe user to promotion notifications
+            await API.post('/users/subscribe/promotions');
+            console.log('Successfully subscribed to promotion notifications');
+          } catch (error) {
+            console.error('Failed to subscribe to promotion notifications:', error);
+          }
+        }
+      }
+    };
+    
+    setupNotifications();
   }, []);
 
   // Fetch products whenever screen comes into focus

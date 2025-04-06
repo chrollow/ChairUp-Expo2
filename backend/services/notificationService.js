@@ -127,11 +127,14 @@ const notifyNewPromotion = async (promotionId) => {
       return;
     }
 
-    // Get all users with push tokens
-    const users = await User.find({ pushToken: { $exists: true, $ne: null } });
+    // Get all users with push tokens who have opted in to promotion notifications
+    const users = await User.find({
+      pushToken: { $exists: true, $ne: null },
+      'preferences.receivePromotions': { $ne: false } // Either true or undefined (default)
+    });
     
     if (!users.length) {
-      console.log('No users with push tokens found');
+      console.log('No users with push tokens found who accept promotions');
       return;
     }
     
@@ -140,7 +143,9 @@ const notifyNewPromotion = async (promotionId) => {
       body: `Use code ${promotion.code} for ${promotion.discountPercent}% off your next purchase!`
     };
     
-    // Send notification to all users with push tokens
+    console.log(`Sending promotion notification to ${users.length} users`);
+    
+    // Send notification to all eligible users with push tokens
     for (const user of users) {
       try {
         await sendPushNotification(
