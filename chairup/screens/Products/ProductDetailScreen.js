@@ -16,8 +16,12 @@ import ProductReviews from '../../components/Reviews/ProductReviews';
 import { syncCartItem } from '../../Context/Actions/Product.actions';
 import { useSelector } from 'react-redux';
 
+<<<<<<< HEAD
 const API_URL = "http://192.168.100.11:3000/api";
 const BASE_URL = "http://192.168.100.11:3000"; // Base URL without /api
+=======
+import { API_URL, BASE_URL } from '../../utils/constants';
+>>>>>>> e5044c2465b334ed2d1d21c2a45db7e02d5e65ee
 
 const ProductDetailScreen = ({ route, navigation }) => {
   const { productId } = route.params;
@@ -194,7 +198,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
 
       <View style={styles.infoContainer}>
         <Text style={styles.productName}>{product.name}</Text>
-        <Text style={styles.productPrice}>${product.price}</Text>
+        <Text style={styles.productPrice}>₱{product.price}</Text>
 
         <View style={styles.ratingContainer}>
           {[1, 2, 3, 4, 5].map(star => (

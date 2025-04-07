@@ -31,6 +31,13 @@ const UserSchema = new mongoose.Schema({
   pushToken: {
     type: String,
     default: null
+  },
+  preferences: {
+    receivePromotions: {
+      type: Boolean,
+      default: true
+    }
+    // Add other preferences as needed
   }
 }, {
   timestamps: { 

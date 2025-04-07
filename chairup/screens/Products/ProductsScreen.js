@@ -23,8 +23,12 @@ import axios from 'axios';
 import { useFocusEffect } from '@react-navigation/native';
 import API from '../../utils/api';
 
+<<<<<<< HEAD
 const API_URL = "http://192.168.100.11:3000/api";
 const BASE_URL = "http://192.168.100.11:3000"; // Base URL without /api
+=======
+import { API_URL, BASE_URL } from '../../utils/constants';
+>>>>>>> e5044c2465b334ed2d1d21c2a45db7e02d5e65ee
 
 const ProductsScreen = ({ navigation }) => {
   const { stateProducts, dispatch } = useContext(ProductContext);
@@ -236,7 +240,7 @@ const ProductsScreen = ({ navigation }) => {
         
         <View style={styles.productInfo}>
           <Text style={styles.productName}>{item.name || 'Unnamed Product'}</Text>
-          <Text style={styles.productPrice}>${parseFloat(item.price).toFixed(2) || '0.00'}</Text>
+          <Text style={styles.productPrice}>₱{parseFloat(item.price).toFixed(2) || '0.00'}</Text>
           <View style={styles.ratingContainer}>
             {[1, 2, 3, 4, 5].map(star => {
               const avgRating = parseFloat(calculateAverageRating(item._id) || 0);
@@ -327,7 +331,7 @@ const ProductsScreen = ({ navigation }) => {
               onPress={toggleFilters}
             >
               <Text style={styles.filterChipText}>
-                Price: ${Math.round(minPrice)} - ${Math.round(maxPrice)}
+                Price: ₱{Math.round(minPrice)} - ₱{Math.round(maxPrice)}
               </Text>
               <Ionicons name="options-outline" size={16} color="#4a6da7" />
             </TouchableOpacity>
@@ -421,8 +425,8 @@ const ProductsScreen = ({ navigation }) => {
                 <View style={styles.filterSection}>
                   <Text style={styles.filterLabel}>Price Range</Text>
                   <View style={styles.priceLabels}>
-                    <Text>${Math.round(minPrice)}</Text>
-                    <Text>${Math.round(maxPrice)}</Text>
+                    <Text>₱{Math.round(minPrice)}</Text>
+                    <Text>₱{Math.round(maxPrice)}</Text>
                   </View>
                   
                   {/* Min price slider */}

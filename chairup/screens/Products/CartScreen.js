@@ -16,9 +16,13 @@ import { syncCartItem, deleteCartItem, clearServerCart, fetchUserCart } from '..
 import * as SecureStore from 'expo-secure-store';
 import PromotionModal from '../../components/Promotions/PromotionModal';
 import axios from 'axios';
+<<<<<<< HEAD
 import { API_URL } from '../../utils/api';
 
 const BASE_URL = "http://192.168.100.11:3000"; // Base URL without /api
+=======
+import { API_URL, BASE_URL } from '../../utils/constants';
+>>>>>>> e5044c2465b334ed2d1d21c2a45db7e02d5e65ee
 
 const CartScreen = ({ navigation, route }) => {
   const { stateProducts, dispatch } = useContext(ProductContext);
@@ -250,7 +254,7 @@ const CartScreen = ({ navigation, route }) => {
           
           <View style={styles.productDetails}>
             <Text style={styles.productName} numberOfLines={2}>{product.name}</Text>
-            <Text style={styles.productPrice}>${product.price}</Text>
+            <Text style={styles.productPrice}>₱{product.price}</Text>
           </View>
         </TouchableOpacity>
         
@@ -323,7 +327,7 @@ const CartScreen = ({ navigation, route }) => {
         <View style={styles.footer}>
           <View style={styles.totalContainer}>
             <Text style={styles.totalText}>Total:</Text>
-            <Text style={styles.totalAmount}>${total.toFixed(2)}</Text>
+            <Text style={styles.totalAmount}>₱{total.toFixed(2)}</Text>
           </View>
           
           <TouchableOpacity

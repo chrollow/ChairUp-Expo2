@@ -200,15 +200,12 @@ export default function App() {
           });
         } 
         else if (data.promotionId) {
-          // Correctly navigate through the nested structure
+          // Navigate directly to HomeTab with promotion parameters
           navigationRef.current.navigate('Main', {
-            screen: 'ProductNavigator',
-            params: {
-              screen: 'Home',
-              params: { 
-                promoCode: data.code,
-                showPromoModal: true
-              }
+            screen: 'HomeTab',
+            params: { 
+              promoCode: data.code,
+              showPromoModal: true
             }
           });
         }

@@ -14,8 +14,12 @@ import { ProductContext } from '../../Context/Store/ProductGlobal';
 import API from '../../utils/api';
 import TouchableScale from '../../components/TouchableScale';
 
+<<<<<<< HEAD
 const API_URL = "http://192.168.100.11:3000/api";
 const BASE_URL = "http://192.168.100.11:3000"; // Base URL without /api
+=======
+import { API_URL, BASE_URL } from '../../utils/constants';
+>>>>>>> e5044c2465b334ed2d1d21c2a45db7e02d5e65ee
 
 const AdminProductsScreen = ({ navigation }) => {
   const { stateProducts, dispatch } = useContext(ProductContext);
@@ -131,7 +135,7 @@ const AdminProductsScreen = ({ navigation }) => {
         
         <View style={styles.productContent}>
           <Text style={styles.productName}>{item?.name || 'Unnamed Product'}</Text>
-          <Text style={styles.productPrice}>${parseFloat(item?.price || 0).toFixed(2)}</Text>
+          <Text style={styles.productPrice}>₱{parseFloat(item?.price || 0).toFixed(2)}</Text>
           <Text style={styles.productCategory}>{item?.category || 'Uncategorized'}</Text>
           <Text style={styles.productStock}>Stock: {item?.stockQuantity || 0}</Text>
         </View>

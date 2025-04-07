@@ -2,8 +2,13 @@ import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 import { getUserCart, updateCartItem, removeCartItem, clearCart as clearCartAPI } from '../../utils/api';
 
+<<<<<<< HEAD
 // Update this to your server's IP/domain
 const API_URL = "http://192.168.100.11:3000/api";
+=======
+// Update import path to use the correct relative path
+import { API_URL, BASE_URL } from '../../utils/constants';
+>>>>>>> e5044c2465b334ed2d1d21c2a45db7e02d5e65ee
 
 // Get all products
 export const getProducts = async () => {

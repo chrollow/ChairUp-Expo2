@@ -8,4 +8,7 @@ const authMiddleware = require('../middleware/auth.middleware');
 router.get('/profile', authMiddleware, userController.getUserProfile);
 router.put('/profile', [authMiddleware, upload.single('profileImage')], userController.updateProfile);
 
+// Add this route to your user routes
+router.post('/subscribe/promotions', authMiddleware, userController.subscribeToPromotions);
+
 module.exports = router;

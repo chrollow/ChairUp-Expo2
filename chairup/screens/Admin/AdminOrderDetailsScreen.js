@@ -15,8 +15,12 @@ import * as SecureStore from 'expo-secure-store';
 import moment from 'moment';
 import { sendOrderStatusNotification } from '../../utils/notifications';
 
+<<<<<<< HEAD
 const API_URL = "http://192.168.100.11:3000/api"; // Update with your server IP
 const BASE_URL = "http://192.168.100.11:3000"; // Add this line for image URLs
+=======
+import { API_URL, BASE_URL } from '../../utils/constants';
+>>>>>>> e5044c2465b334ed2d1d21c2a45db7e02d5e65ee
 
 const AdminOrderDetailsScreen = ({ route, navigation }) => {
   const { orderId } = route.params;
@@ -238,11 +242,11 @@ const AdminOrderDetailsScreen = ({ route, navigation }) => {
             <View style={styles.productInfo}>
               <Text style={styles.productName}>{item.product.name}</Text>
               <View style={styles.productDetails}>
-                <Text style={styles.productPrice}>${item.price.toFixed(2)}</Text>
+                <Text style={styles.productPrice}>₱{item.price.toFixed(2)}</Text>
                 <Text style={styles.productQuantity}>×{item.quantity}</Text>
               </View>
               <Text style={styles.itemTotal}>
-                ${(item.price * item.quantity).toFixed(2)}
+              ₱{(item.price * item.quantity).toFixed(2)}
               </Text>
             </View>
           </View>
@@ -256,17 +260,17 @@ const AdminOrderDetailsScreen = ({ route, navigation }) => {
         
         <View style={styles.summaryRow}>
           <Text style={styles.summaryLabel}>Subtotal:</Text>
-          <Text style={styles.summaryValue}>${order.itemsPrice.toFixed(2)}</Text>
+          <Text style={styles.summaryValue}>₱{order.itemsPrice.toFixed(2)}</Text>
         </View>
         
         <View style={styles.summaryRow}>
           <Text style={styles.summaryLabel}>Shipping:</Text>
-          <Text style={styles.summaryValue}>${order.shippingPrice.toFixed(2)}</Text>
+          <Text style={styles.summaryValue}>₱{order.shippingPrice.toFixed(2)}</Text>
         </View>
         
         <View style={[styles.summaryRow, styles.totalRow]}>
           <Text style={styles.totalLabel}>Total:</Text>
-          <Text style={styles.totalValue}>${order.totalPrice.toFixed(2)}</Text>
+          <Text style={styles.totalValue}>₱{order.totalPrice.toFixed(2)}</Text>
         </View>
       </View>
       

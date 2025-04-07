@@ -18,7 +18,11 @@ import * as SecureStore from 'expo-secure-store';
 import { clearCart } from '../../redux/slices/cartSlice';
 import { clearServerCart } from '../../Context/Actions/Product.actions';
 
+<<<<<<< HEAD
 const API_URL = "http://192.168.100.11:3000/api"; // Update with your server IP
+=======
+import { API_URL, BASE_URL } from '../../utils/constants';
+>>>>>>> e5044c2465b334ed2d1d21c2a45db7e02d5e65ee
 
 const CheckoutScreen = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -87,7 +91,7 @@ const CheckoutScreen = ({ navigation }) => {
         const promoDiscount = (subTotal * response.data.promotion.discountPercent) / 100;
         setDiscount(promoDiscount);
         setAppliedPromo(response.data.promotion);
-        Alert.alert('Success', `Promo code applied! You saved $${promoDiscount.toFixed(2)}`);
+        Alert.alert('Success', `Promo code applied! You saved ₱${promoDiscount.toFixed(2)}`);
       } else {
         Alert.alert('Invalid Code', response.data.message || 'This promo code is invalid or expired');
       }
@@ -337,26 +341,26 @@ const CheckoutScreen = ({ navigation }) => {
           
           <View style={styles.orderSummaryItem}>
             <Text style={styles.orderSummaryLabel}>Subtotal</Text>
-            <Text style={styles.orderSummaryValue}>${subTotal.toFixed(2)}</Text>
+            <Text style={styles.orderSummaryValue}>₱{subTotal.toFixed(2)}</Text>
           </View>
 
           {discount > 0 && (
             <View style={styles.orderSummaryItem}>
               <Text style={[styles.orderSummaryLabel, {color: '#4CAF50'}]}>Discount</Text>
-              <Text style={[styles.orderSummaryValue, {color: '#4CAF50'}]}>-${discount.toFixed(2)}</Text>
+              <Text style={[styles.orderSummaryValue, {color: '#4CAF50'}]}>-₱{discount.toFixed(2)}</Text>
             </View>
           )}
 
           <View style={styles.orderSummaryItem}>
             <Text style={styles.orderSummaryLabel}>Shipping</Text>
-            <Text style={styles.orderSummaryValue}>${shippingCost.toFixed(2)}</Text>
+            <Text style={styles.orderSummaryValue}>₱{shippingCost.toFixed(2)}</Text>
           </View>
           
           <View style={styles.divider} />
           
           <View style={styles.orderSummaryItem}>
             <Text style={styles.totalLabel}>Total</Text>
-            <Text style={styles.totalValue}>${total.toFixed(2)}</Text>
+            <Text style={styles.totalValue}>₱{total.toFixed(2)}</Text>
           </View>
         </View>
         

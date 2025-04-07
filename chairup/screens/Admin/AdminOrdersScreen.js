@@ -14,7 +14,11 @@ import * as SecureStore from 'expo-secure-store';
 import moment from 'moment';
 import { sendOrderStatusNotification } from '../../utils/notifications';
 
+<<<<<<< HEAD
 const API_URL = "http://192.168.100.11:3000/api"; // Update with your server IP
+=======
+import { API_URL, BASE_URL } from '../../utils/constants';
+>>>>>>> e5044c2465b334ed2d1d21c2a45db7e02d5e65ee
 
 const AdminOrdersScreen = ({ navigation }) => {
   const [orders, setOrders] = useState([]);
@@ -158,7 +162,7 @@ const AdminOrdersScreen = ({ navigation }) => {
           </Text>
           
           <View style={styles.footer}>
-            <Text style={styles.totalPrice}>${item.totalPrice?.toFixed(2)}</Text>
+            <Text style={styles.totalPrice}>₱{item.totalPrice?.toFixed(2)}</Text>
             
             <TouchableOpacity 
               style={styles.updateButton}
