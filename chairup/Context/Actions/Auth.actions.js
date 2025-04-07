@@ -11,11 +11,7 @@ try {
 }
 
 // Update this to your server's IP/domain - use your computer's IP on the same network
-<<<<<<< HEAD
-const API_URL = "http://192.168.100.11:3000/api";
-=======
 import { API_URL, BASE_URL } from '../../utils/constants';
->>>>>>> e5044c2465b334ed2d1d21c2a45db7e02d5e65ee
 
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 

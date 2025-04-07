@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-const BASE_URL = "http://192.168.100.11:3000"; // Use your server IP here
-=======
 import { API_URL, BASE_URL } from '../../utils/constants';
->>>>>>> e5044c2465b334ed2d1d21c2a45db7e02d5e65ee
 
 import React, { useEffect, useState, forwardRef, useImperativeHandle } from 'react';
 import { 

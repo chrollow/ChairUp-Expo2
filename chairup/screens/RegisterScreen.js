@@ -23,12 +23,7 @@ import Input from './Shared/Input';
 import { registerUser } from '../Context/Actions/Auth.actions';
 
 // Add this line to define API_URL
-<<<<<<< HEAD
-const API_URL = "http://192.168.100.11:3000/api";
-
-=======
 import { API_URL, BASE_URL } from '../utils/constants';
->>>>>>> e5044c2465b334ed2d1d21c2a45db7e02d5e65ee
 var { width } = Dimensions.get("window");
 
 const RegisterScreen = ({ navigation }) => {

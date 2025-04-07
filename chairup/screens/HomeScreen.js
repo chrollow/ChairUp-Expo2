@@ -22,12 +22,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import PromotionDetailModal from '../components/Promotions/PromotionDetailModal';
 import * as Notifications from 'expo-notifications';
 
-<<<<<<< HEAD
-const API_URL = "http://192.168.100.11:3000/api";
-const BASE_URL = "http://192.168.100.11:3000"; // Base URL without /api
-=======
 import { API_URL, BASE_URL } from '../utils/constants';
->>>>>>> e5044c2465b334ed2d1d21c2a45db7e02d5e65ee
 
 const HomeScreen = ({ navigation, route }) => {
   const [userData, setUserData] = useState(null);

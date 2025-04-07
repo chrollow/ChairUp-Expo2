@@ -4,11 +4,7 @@ import { API_URL } from './constants';
 
 // Create axios instance with base URL
 const API = axios.create({
-<<<<<<< HEAD
-  baseURL: 'http://192.168.100.11:3000/api'
-=======
   baseURL: API_URL
->>>>>>> e5044c2465b334ed2d1d21c2a45db7e02d5e65ee
 });
 
 // Add request interceptor to automatically include auth token
