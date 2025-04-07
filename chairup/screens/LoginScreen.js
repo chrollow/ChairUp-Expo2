@@ -117,7 +117,7 @@ const LoginScreen = ({ navigation }) => {
         
         <View style={styles.orContainer}>
           <View style={styles.divider} />
-          <Text style={styles.orText}>OR</Text>
+          {/* <Text style={styles.orText}>OR</Text> */}
           <View style={styles.divider} />
         </View>
  
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    marginTop: '10%', // Changed from fixed 60 to percentage
+    marginTop: '40%', // Changed from fixed 60 to percentage
     marginBottom: '5%', // Changed from fixed 30 to percentage
   },
   logo: {
@@ -206,6 +206,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
+    marginTop: '10%',
     marginVertical: 16, // Reduced from 24
   },
   divider: {
